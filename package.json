@@ -1,0 +1,20 @@
+{
+  "name": "practice-graphql-server-with-apollo-and-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma.git"
+  },
+  "keywords": [],
+  "author": "kjirou (https://github.com/kjirou)",
+  "license": "SEE LICENSE IN https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma/blob/9bf6716d1cba4d0ed3d4ddc556c6ccbe12597caf/LICENSE",
+  "bugs": {
+    "url": "https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma/issues"
+  },
+  "homepage": "https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma#readme"
+}

@@ -8,3 +8,7 @@
 
 - [これを読めばGraphQL全体がわかる。GraphQLサーバからDB、フロントエンド構築](https://reffect.co.jp/html/graphql) というまんまの記事があったので、とりあえずこの記事に従って作業する。
   - Apollo と Prisma (SQLite) を使っている。
+
+## :world_map: 環境
+
+- Node.js `16.11.1`。npm は付属のもの。
