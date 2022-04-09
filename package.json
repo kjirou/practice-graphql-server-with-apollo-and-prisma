@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma/issues"
   },
-  "homepage": "https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma#readme"
+  "homepage": "https://github.com/kjirou/practice-graphql-server-with-apollo-and-prisma#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.7",
+    "graphql": "^16.3.0"
+  }
 }
