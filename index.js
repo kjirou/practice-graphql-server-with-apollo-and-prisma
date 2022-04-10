@@ -47,32 +47,21 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    hello: (parent, args) => `Hello ${args.name}`,
-    users: async () => {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/users'
-      );
-      return response.data;
+    hello: (_, args) => `Hello ${args.name}`,
+    users: async (_, __, { dataSources }) => {
+      return dataSources.jsonPlaceAPI.getUsers();
     },
-    user: async (parent, args) => {
-      let response = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${args.id}`
-      );
-      return response.data;
+    user: async (_, args, { dataSources }) => {
+      return dataSources.jsonPlaceAPI.getUser(args.id);
     },
-    posts: async () => {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts'
-      );
-      return response.data;
+    posts: async (_, __, { dataSources }) => {
+      return dataSources.jsonPlaceAPI.getPosts();
     },
   },
   User: {
-    myPosts: async (parent) => {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts'
-      );
-      const myPosts = response.data.filter((post) => post.userId == parent.id);
+    myPosts: async (parent, __, { dataSources }) => {
+      const posts = await dataSources.jsonPlaceAPI.getPosts();
+      const myPosts = posts.filter((post) => post.userId == parent.id);
       return myPosts;
     },
   },
