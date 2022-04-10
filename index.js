@@ -1,5 +1,26 @@
+const { RESTDataSource } = require('apollo-datasource-rest');
 const { ApolloServer, gql } = require('apollo-server');
 const axios = require('axios');
+
+class jsonPlaceAPI extends RESTDataSource {
+  constructor() {
+    super();
+    this.baseURL = 'https://jsonplaceholder.typicode.com/';
+  }
+
+  async getUsers() {
+    const data = await this.get('/users');
+    return data;
+  }
+  async getUser(id) {
+    const data = await this.get(`/users/${id}`);
+    return data;
+  }
+  async getPosts() {
+    const data = await this.get('/posts');
+    return data;
+  }
+}
 
 const typeDefs = gql`
   type User {
@@ -57,7 +78,15 @@ const resolvers = {
   },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => {
+    return {
+      jsonPlaceAPI: new jsonPlaceAPI(),
+    };
+  },
+});
 
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
