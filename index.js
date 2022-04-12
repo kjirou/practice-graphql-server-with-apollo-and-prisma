@@ -50,6 +50,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(name: String!, email: String!): User
+    updateUser(id: Int!, name: String!): User
   }
 `
 
@@ -79,6 +80,16 @@ const resolvers = {
         data: {
           name: args.name,
           email: args.email,
+        },
+      });
+    },
+    updateUser:(_, args) => {
+      return prisma.user.update({
+        where: {
+          id: args.id,
+        },
+        data: {
+          name: args.name,
         },
       });
     },
