@@ -20,5 +20,6 @@
 
 ```
 cp .env.default .env
+npx prisma generate
 npm start
 ```
