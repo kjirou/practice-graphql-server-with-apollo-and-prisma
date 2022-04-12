@@ -11,12 +11,12 @@
 
 ## :world_map: 環境
 
-- Node.js `16.11.1`。npm は付属のもの。
+- 依存しているソフトウェア
+  - Node.js `16.11.1`。npm は付属のもの。
+- SQLite3
+  - `sqlite3` へ PATH が通っていること。
 
 ## :gear: ローカル開発環境の構築
-
-- 依存しているソフトウェア
-  - SQLite
 
 ```
 cp .env.default .env
