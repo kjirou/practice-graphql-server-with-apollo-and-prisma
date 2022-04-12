@@ -12,3 +12,13 @@
 ## :world_map: 環境
 
 - Node.js `16.11.1`。npm は付属のもの。
+
+## :gear: ローカル開発環境の構築
+
+- 依存しているソフトウェア
+  - SQLite
+
+```
+cp .env.default .env
+npm start
+```
