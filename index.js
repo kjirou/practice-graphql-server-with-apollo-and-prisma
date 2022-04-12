@@ -47,6 +47,10 @@ const typeDefs = gql`
     user(id: ID!): User
     posts: [Post]
   }
+
+  type Mutation {
+    createUser(name: String!, email: String!): User
+  }
 `
 
 const resolvers = {
@@ -67,6 +71,16 @@ const resolvers = {
       const posts = await dataSources.jsonPlaceAPI.getPosts();
       const myPosts = posts.filter((post) => post.userId == parent.id);
       return myPosts;
+    },
+  },
+  Mutation: {
+    createUser: (_, args) => {
+      return prisma.user.create({
+        data: {
+          name: args.name,
+          email: args.email,
+        },
+      });
     },
   },
 };
